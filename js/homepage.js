@@ -66,5 +66,5 @@ function deleteLetter(letters) {
 }
 
 function mouseReleased() {
-  // loop();
+  loop();
 }
