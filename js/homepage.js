@@ -3,7 +3,7 @@ var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 var blue = ['b', 'l', 'u', 'e'];
 
 function setup() {
-  createCanvas(1265, 630);
+  createCanvas(1300, 650);
   // background(255, 204, 0);
   for (var i = 0; i < 500; i++) {
     letters.push(new Letter());
@@ -15,7 +15,18 @@ function draw() {
   for (var i = 0; i < letters.length; i++) {
     letters[i].move();
     letters[i].display();
+    //if the mouse is within 25 pixels of the letter
+    if (((Math.floor(letters[i].x) - 25 <= mouseX) && (Math.floor(letters[i].x) + 25 >= mouseX)) && ((Math.floor(letters[i].y) - 25 <= mouseY) && (Math.floor(letters[i].y) + 25 >= mouseY))) {
+      //move the letter away - either -10 pixels or +10 pixels depending on whether or not the x coordinate is even (this is just to create some variety)
+      if (Math.floor(letters[i].x) % 2 == 0) {
+        letters[i].x -= 10;
+        letters[i].y -= 10;
+      } else {
+        letters[i].x += 10;
+        letters[i].y += 10;
+      }
   }
+}
 }
 
 function Letter() {
@@ -45,6 +56,7 @@ function randomLetter() {
   return alphabet[randNum];
 }
 
+//when the user presses down on the mouse- letters stop moving
 function mousePressed() {
   // background(0);
   noLoop();
@@ -52,19 +64,20 @@ function mousePressed() {
   //   letters.push(new Letter(blue[i]));
   // }
   // while (letters.length != 0) {
-    setTimeout(deleteLetter(letters), 3500);
+    // setTimeout(deleteLetter(letters), 3500);
     // deleteLetter(letters);
   // }
   // mousePressed();
 }
 
-function deleteLetter(letters) {
-  for (var i = 0; i < 50; i++) {
-    letters.pop();
-  }
-  // setTimeout(deleteLetter(letters), 1000);
-}
+// function deleteLetter(letters) {
+//   for (var i = 0; i < 50; i++) {
+//     letters.pop();
+//   }
+//   // setTimeout(deleteLetter(letters), 1000);
+// }
 
+//when the mouse is released- letters resume movement
 function mouseReleased() {
   loop();
 }
