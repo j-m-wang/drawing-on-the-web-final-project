@@ -1,17 +1,17 @@
 var letters = [];
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var blue = ['b', 'l', 'u', 'e'];
+var backgroundcolor = ['Gainsboro','hotpink'];
+var bc = 0;
 
 function setup() {
-  createCanvas(1300, 650);
-  // background(255, 204, 0);
-  for (var i = 0; i < 500; i++) {
+  createCanvas(window.innerWidth, window.innerHeight);
+  for (var i = 0; i < 600; i++) {
     letters.push(new Letter());
   }
 }
 
 function draw() {
-  background(220);
+  background(backgroundcolor[bc]);
   for (var i = 0; i < letters.length; i++) {
     letters[i].move();
     letters[i].display();
@@ -21,12 +21,13 @@ function draw() {
       if (Math.floor(letters[i].x) % 2 == 0) {
         letters[i].x -= 10;
         letters[i].y -= 10;
-      } else {
+      }
+      else {
         letters[i].x += 10;
         letters[i].y += 10;
       }
+    }
   }
-}
 }
 
 function Letter() {
@@ -58,24 +59,8 @@ function randomLetter() {
 
 //when the user presses down on the mouse- letters stop moving
 function mousePressed() {
-  // background(0);
   noLoop();
-  // for (var i = 0; i < blue.length; i++) {
-  //   letters.push(new Letter(blue[i]));
-  // }
-  // while (letters.length != 0) {
-    // setTimeout(deleteLetter(letters), 3500);
-    // deleteLetter(letters);
-  // }
-  // mousePressed();
 }
-
-// function deleteLetter(letters) {
-//   for (var i = 0; i < 50; i++) {
-//     letters.pop();
-//   }
-//   // setTimeout(deleteLetter(letters), 1000);
-// }
 
 //when the mouse is released- letters resume movement
 function mouseReleased() {
