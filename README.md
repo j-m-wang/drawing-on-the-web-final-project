@@ -1,8 +1,7 @@
 #Interactive Poetry
----
-##Spring 2016, Drawing on the Web Final Project
+###Spring 2016, Drawing on the Web Final Project
 
-###Authors: Jessica Wang and Amanda Zeng
+######Authors: Jessica Wang and Amanda Zeng
 
 In our final project - inspired by April Poetry Month- we made an interactive website that
 incorporates motion and poetry. The homepage is made up of miscellaneous letters randomly placed on the page. We did this using HTML Canvas/p5js. Each letter constantly vibrates in place when the mouse hovers over the letters, they move away randomly. When the user clicks on the screen the letters pause.
