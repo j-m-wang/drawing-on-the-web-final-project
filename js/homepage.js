@@ -1,17 +1,18 @@
 var letters = [];
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var backgroundcolor = ['Gainsboro','hotpink'];
+var backgroundcolor = ['white'];
 var bc = 0;
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
+  background(255, 255, 255);
   for (var i = 0; i < 600; i++) {
     letters.push(new Letter());
   }
 }
 
 function draw() {
-  background(backgroundcolor[bc]);
+  background(255, 255, 255);
   for (var i = 0; i < letters.length; i++) {
     letters[i].move();
     letters[i].display();
